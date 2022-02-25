@@ -7,10 +7,21 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.main-container {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.user-name {
+  margin-right: 1rem;
+}
+
+.rounded {
 }
