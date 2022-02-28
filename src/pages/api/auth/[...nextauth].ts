@@ -5,8 +5,15 @@ import Providers from "next-auth/providers";
 const options: NextAuthOptions = {
   theme: "light",
   debug: true,
-  session: {},
-  jwt: {},
+  session: {
+    maxAge: 60 * 15, //15 min
+  },
+  jwt: {
+    secret: process.env.AUTH_JWT_SECRET,
+    signingKey: process.env.AUTH_JWT_SIGNIN_KEY,
+    encryption: true,
+    encryptionKey: process.env.AUTH_JWT_ENCRYPTION_KEY,
+  },
   providers: [
     Providers.Credentials({
       // The name to display on the sign in form (e.g. 'Sign in with...')
@@ -23,7 +30,7 @@ const options: NextAuthOptions = {
         },
       },
       async authorize(credentials) {
-        console.log(credentials);
+        // console.log(credentials);
         // Proveer la lógica que tome las credenciales enviadas y regrese
         // un objeto representando al usuario o
         // un valor false/null si las credenciales son invalidas.

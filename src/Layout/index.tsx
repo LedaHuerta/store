@@ -2,6 +2,8 @@ import React from "react";
 import { Skeleton, Stack } from "@mui/material";
 import { useSession } from "next-auth/client";
 import { AccessDenied } from "@components/AccessDenied";
+import Header from "@layout/Header";
+import Footer from "@layout/Footer";
 
 interface Props {
   Component: any;
@@ -26,9 +28,9 @@ const Layout = ({ Component, pageProps }: Props) => {
 
   return (
     <>
-      <header>header</header>
+      <Header />
       <Component {...pageProps} />
-      <footer>Soy un footer</footer>
+      <Footer />
     </>
   );
 };
